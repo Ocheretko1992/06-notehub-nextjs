@@ -2,22 +2,22 @@ import { Note } from '@/types/note';
 import css from './NoteDetails.module.css';
 
 interface NoteDetailsProp {
-  prop: Note;
+  note: Note;
 }
 
-const NoteDetails = ({ prop }: NoteDetailsProp) => {
-  const noteData = prop.updatedAt
-    ? `Updated at: ${prop?.updatedAt}`
-    : `Created at: ${prop?.createdAt}`;
+const NoteDetails = ({ note }: NoteDetailsProp) => {
+  const noteData = note.updatedAt
+    ? `Updated at: ${note?.updatedAt}`
+    : `Created at: ${note?.createdAt}`;
 
   return (
     <div className={css.container}>
       <div className={css.item}>
         <div className={css.header}>
-          <h2>{prop.title}</h2>
+          <h2>{note.title}</h2>
         </div>
-        <h2 className={css.content}>id: {prop.id}</h2>
-        <p className={css.content}>{prop.content}</p>
+        <h2 className={css.content}>id: {note.id}</h2>
+        <p className={css.content}>{note.content}</p>
         <p className={css.date}>{noteData}</p>
       </div>
     </div>

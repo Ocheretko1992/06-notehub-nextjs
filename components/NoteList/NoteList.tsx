@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deleteNote } from '@/lib/api';
 
-interface NoteListProp {
+interface NoteListProps {
   notes: Note[];
 }
-const NoteList = ({ notes }: NoteListProp) => {
+const NoteList = ({ notes }: NoteListProps) => {
   const queryClient = useQueryClient();
   const { mutate } = useMutation({
     mutationFn: deleteNote,

@@ -3,25 +3,15 @@ body {
     Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   display: flex;
   flex-direction: column;
-  min-height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #f8f9fa;
+  background-color: aqua;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
-main{
-  flex: 1;
-  background-color: aqua;
-}
-.layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
 
 a {

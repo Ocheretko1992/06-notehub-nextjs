@@ -7,7 +7,7 @@ import { createNote } from '@/lib/api';
 import { NoteTag } from '@/types/note';
 import Error from "@/components/Error/Error"
 
-interface OrderForm {
+interface NoteFormValues {
   title: string;
   content: string;
   tag: NoteTag;
@@ -17,13 +17,13 @@ interface NoteFormProps {
   onSuccessClose: () => void;
 }
 
-const validattion = Yup.object().shape({
+const validation = Yup.object().shape({
   title: Yup.string().trim().min(3).max(50).required(),
   content: Yup.string().trim().max(500),
   tag: Yup.string().oneOf(['Todo', 'Work', 'Personal', 'Meeting', 'Shopping']),
 });
 
-const initialValues: OrderForm = {
+const initialValues: NoteFormValues = {
   title: '',
   content: '',
   tag: 'Personal',
@@ -42,10 +42,10 @@ const NoteForm = ({ onSuccessClose }: NoteFormProps) => {
   });
 
   const handleSubmit = (
-    values: OrderForm,
-    options: FormikHelpers<OrderForm>
+    values: NoteFormValues,
+    options: FormikHelpers<NoteFormValues>
   ) => {
-    mutate({...values, tag: values.tag as NoteTag});
+    mutate({ ...values, tag: values.tag as NoteTag });
 
     options.resetForm();
   };
@@ -54,7 +54,7 @@ const NoteForm = ({ onSuccessClose }: NoteFormProps) => {
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      validationSchema={validattion}
+      validationSchema={validation}
     >
       {({isValid, dirty}) => (
         <Form className={css.form}>

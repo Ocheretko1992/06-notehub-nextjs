@@ -8,7 +8,7 @@ import NoteDetails from '@/components/NoteDetails/NoteDetails';
 export default function NoteDetailsClient() {
   const { id } = useParams<{ id: string }>();
   const {
-    data: prop,
+    data: note,
     isLoading,
     isError,
   } = useQuery({
@@ -24,12 +24,12 @@ export default function NoteDetailsClient() {
   if (isError) {
     return <p>Something went wrong.</p>;
   }
-  if (!prop) {
+  if (!note) {
     return <p>Something went wrong.</p>;
   }
   return (
     <>
-      <NoteDetails prop={prop} />
+      <NoteDetails note={note} />
     </>
   );
 }

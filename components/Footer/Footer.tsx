@@ -1,4 +1,4 @@
-import css from './Footer.module.css'
+import css from './Footer.module.css';
 
 const Footer = () => {
   return (
@@ -9,11 +9,17 @@ const Footer = () => {
           <p>Developer: your name</p>
           <p>
             Contact us:
-            <a href="mailto:student@notehub.app" target='blank'>student@notehub.app</a>
+            <a
+              href="mailto:student@notehub.app"
+              target="blank"
+              rel="noopener noreferrer"
+            >
+              student@notehub.app
+            </a>
           </p>
         </div>
       </div>
     </footer>
   );
-}
+};
 export default Footer;
