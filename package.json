@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "dev:trace": "node --trace-deprecation ./node_modules/next/dist/bin/next dev"
-
+    "lint": "eslint"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.12",
