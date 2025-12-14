@@ -8,13 +8,12 @@
     "start": "next start",
     "lint": "eslint",
     "dev:trace": "node --trace-deprecation ./node_modules/next/dist/bin/next dev"
-
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.12",
     "axios": "^1.13.2",
     "formik": "^2.4.9",
-    "next": "16.0.4",
+    "next": "16.0.10",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-hot-toast": "^2.6.0",
