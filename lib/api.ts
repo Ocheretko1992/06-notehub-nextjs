@@ -33,7 +33,7 @@ export const fetchNotes = async ({ page, search }: ParamsProp) => {
   const { data } = await axios.get<FetchNotesResponse>('/notes', {
     params: {
       page,
-      perPage: 10,
+      perPage: 9,
       search,
     },
   });

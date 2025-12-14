@@ -12,19 +12,19 @@ import { useState, useEffect } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { toast, Toaster } from 'react-hot-toast';
 import css from './NotesPage.module.css';
-import Loader from '@/components/Loader/Loader';
+import {Loader, } from '@/components/Loader/Loader';
+import Loading from '../loading';
 
 export default function NotesClient() {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
   const { isOpen, openModal, closeModal } = useModalControl();
   const {
-    data:
-    response,
+    data: response,
     isSuccess,
-    isError,
-    isLoading,
     isFetching,
+    isLoading,
+    isError,
   } = useQuery({
     queryKey: ['notes', search, page],
     queryFn: () => fetchNotes({ search, page }),
@@ -43,7 +43,7 @@ export default function NotesClient() {
   const hendleSearch = useDebouncedCallback((value: string) => {
     setSearch(value);
     setPage(1);
-  }, 300);
+  }, 500);
 
   return (
     <>
@@ -54,6 +54,9 @@ export default function NotesClient() {
             search={search}
             onChange={e => hendleSearch(e.target.value)}
           />
+          <div className={css.loader}>
+            <div>{isFetching && <Loader />}</div>
+          </div>
           {totalPages > 0 && (
             <Pagination
               totalPages={totalPages}
@@ -61,13 +64,15 @@ export default function NotesClient() {
               onPageChange={setPage}
             />
           )}
+
           <button className={css.button} onClick={openModal}>
             Create note +
           </button>
         </div>
-        {isLoading || (isFetching && <Loader />)}
         {isError && <Error />}
         {isSuccess && <NoteList notes={response.notes} />}
+        {isLoading && <Loading />}
+
         {isOpen && (
           <Modal onClose={closeModal}>
             <NoteForm onSuccessClose={closeModal} />

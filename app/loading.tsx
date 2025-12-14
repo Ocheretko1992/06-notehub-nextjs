@@ -1,7 +1,7 @@
-import Loader from '@/components/Loader/Loader';
+"use client"
+import {LoaderLoading} from '@/components/Loader/Loader';
 
 const Loading = () => {
-  return <Loader />;
+  return <LoaderLoading />;
 };
-
 export default Loading;

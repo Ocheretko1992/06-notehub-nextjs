@@ -18,8 +18,8 @@ interface NoteFormProps {
 }
 
 const validattion = Yup.object().shape({
-  title: Yup.string().min(3).max(50).required(),
-  content: Yup.string().max(500),
+  title: Yup.string().trim().min(3).max(50).required(),
+  content: Yup.string().trim().max(500),
   tag: Yup.string().oneOf(['Todo', 'Work', 'Personal', 'Meeting', 'Shopping']),
 });
 
